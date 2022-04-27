@@ -6,12 +6,10 @@ import './../../assets/css/style.css';
 import { useForm } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-
 const schema = yup.object({
   fullName: yup.string().required("Bắt buộc nhập").min(3, 'Must be exactly 3 digits'),
   age: yup.number().positive().integer().required("Bắt buộc nhập").min(3, 'Must be exactly 3 digits'),
 }).required();
-
 const HomePage = () => {
     const [loading, setLoading] = useState(false);
     const {register , handleSubmit , setValue, watch, formState: {errors}} = useForm({
@@ -35,6 +33,9 @@ const onSubmit = data => {
                 </h1>
             ) : (
                 <div>
+                    <Text colorText="pink" bg="yellow" text="Pham Tuan Anh" />
+                    <Text colorText="green" text="Pham Tuan Anh 2" />
+                    <br/>
                     <form onSubmit={handleSubmit(onSubmit)}>
                     <input 
                     {...register("fullName")}
@@ -49,7 +50,7 @@ const onSubmit = data => {
                     />
                     <p>{errors.age?.message}</p>
                     <br/>
-                    <button type="submit">Submit</button>
+                    <Button btnText="CSS BUTTON" />
                     </form>
                 </div>
             )}
